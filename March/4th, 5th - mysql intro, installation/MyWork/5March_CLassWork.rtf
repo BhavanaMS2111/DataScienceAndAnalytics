@@ -1,0 +1,312 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.18362}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9 Enter password: ****\par
+Welcome to the MySQL monitor.  Commands end with ; or \\g.\par
+Your MySQL connection id is 12\par
+Server version: 8.0.41 MySQL Community Server - GPL\par
+\par
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.\par
+\par
+Oracle is a registered trademark of Oracle Corporation and/or its\par
+affiliates. Other names may be trademarks of their respective\par
+owners.\par
+\par
+Type 'help;' or '\\h' for help. Type '\\c' to clear the current input statement.\par
+\par
+mysql> show databases\par
+    -> ^C\par
+mysql> show databases;\par
++--------------------+\par
+| Database           |\par
++--------------------+\par
+| information_schema |\par
+| mysql              |\par
+| performance_schema |\par
+| sys                |\par
++--------------------+\par
+4 rows in set (1.87 sec)\par
+\par
+mysql> create databse nit;\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'databse nit' at line 1\par
+mysql> create database nit;\par
+Query OK, 1 row affected (0.36 sec)\par
+\par
+mysql> show databases;\par
++--------------------+\par
+| Database           |\par
++--------------------+\par
+| information_schema |\par
+| mysql              |\par
+| nit                |\par
+| performance_schema |\par
+| sys                |\par
++--------------------+\par
+5 rows in set (0.00 sec)\par
+\par
+mysql> use nit;\par
+Database changed\par
+mysql> show tables;\par
+Empty set (0.39 sec)\par
+\par
+mysql> create table student(\par
+    -> name varchar(30),\par
+    -> id int not null primary key,\par
+    -> address varchar(50),\par
+    -> marks int);\par
+Query OK, 0 rows affected (2.05 sec)\par
+\par
+mysql> show tables;\par
++---------------+\par
+| Tables_in_nit |\par
++---------------+\par
+| student       |\par
++---------------+\par
+1 row in set (0.02 sec)\par
+\par
+mysql> desc student;\par
++---------+-------------+------+-----+---------+-------+\par
+| Field   | Type        | Null | Key | Default | Extra |\par
++---------+-------------+------+-----+---------+-------+\par
+| name    | varchar(30) | YES  |     | NULL    |       |\par
+| id      | int         | NO   | PRI | NULL    |       |\par
+| address | varchar(50) | YES  |     | NULL    |       |\par
+| marks   | int         | YES  |     | NULL    |       |\par
++---------+-------------+------+-----+---------+-------+\par
+4 rows in set (0.07 sec)\par
+\par
+mysql> insert into student(marks,id,name,address) values (94,1111,'Bhavana','Hyderabad');\par
+Query OK, 1 row affected (0.28 sec)\par
+\par
+mysql> insert into student(marks,id,name,address) values (84,2222,'Marthand','Chennai');\par
+Query OK, 1 row affected (0.17 sec)\par
+\par
+mysql> insert into student(marks,id,name,address) values (74,3333,'Hithaardh','Bangalore');\par
+Query OK, 1 row affected (0.20 sec)\par
+\par
+mysql> desc student;\par
++---------+-------------+------+-----+---------+-------+\par
+| Field   | Type        | Null | Key | Default | Extra |\par
++---------+-------------+------+-----+---------+-------+\par
+| name    | varchar(30) | YES  |     | NULL    |       |\par
+| id      | int         | NO   | PRI | NULL    |       |\par
+| address | varchar(50) | YES  |     | NULL    |       |\par
+| marks   | int         | YES  |     | NULL    |       |\par
++---------+-------------+------+-----+---------+-------+\par
+4 rows in set (0.00 sec)\par
+\par
+mysql> insert into student values('Venkat',4444,'Hyderabad',90);\par
+Query OK, 1 row affected (0.12 sec)\par
+\par
+mysql> insert into student values ('Sudha',5555,'Nellore',100), ('Mohit',6666,'Hyderabad',70), ('Sri Nidhi',7777,'Hyderabad', 78);\par
+Query OK, 3 rows affected (0.14 sec)\par
+Records: 3  Duplicates: 0  Warnings: 0\par
+\par
+mysql> select * from student;\par
++-----------+------+-----------+-------+\par
+| name      | id   | address   | marks |\par
++-----------+------+-----------+-------+\par
+| Bhavana   | 1111 | Hyderabad |    94 |\par
+| Marthand  | 2222 | Chennai   |    84 |\par
+| Hithaardh | 3333 | Bangalore |    74 |\par
+| Venkat    | 4444 | Hyderabad |    90 |\par
+| Sudha     | 5555 | Nellore   |   100 |\par
+| Mohit     | 6666 | Hyderabad |    70 |\par
+| Sri Nidhi | 7777 | Hyderabad |    78 |\par
++-----------+------+-----------+-------+\par
+7 rows in set (0.00 sec)\par
+\par
+mysql> select name from student;\par
++-----------+\par
+| name      |\par
++-----------+\par
+| Bhavana   |\par
+| Marthand  |\par
+| Hithaardh |\par
+| Venkat    |\par
+| Sudha     |\par
+| Mohit     |\par
+| Sri Nidhi |\par
++-----------+\par
+7 rows in set (0.00 sec)\par
+\par
+mysql> select name,id from student;\par
++-----------+------+\par
+| name      | id   |\par
++-----------+------+\par
+| Bhavana   | 1111 |\par
+| Marthand  | 2222 |\par
+| Hithaardh | 3333 |\par
+| Venkat    | 4444 |\par
+| Sudha     | 5555 |\par
+| Mohit     | 6666 |\par
+| Sri Nidhi | 7777 |\par
++-----------+------+\par
+7 rows in set (0.00 sec)\par
+\par
+mysql> select * from student where id=1111;\par
++---------+------+-----------+-------+\par
+| name    | id   | address   | marks |\par
++---------+------+-----------+-------+\par
+| Bhavana | 1111 | Hyderabad |    94 |\par
++---------+------+-----------+-------+\par
+1 row in set (0.00 sec)\par
+\par
+mysql> select * from student;\par
++-----------+------+-----------+-------+\par
+| name      | id   | address   | marks |\par
++-----------+------+-----------+-------+\par
+| Bhavana   | 1111 | Hyderabad |    94 |\par
+| Marthand  | 2222 | Chennai   |    84 |\par
+| Hithaardh | 3333 | Bangalore |    74 |\par
+| Venkat    | 4444 | Hyderabad |    90 |\par
+| Sudha     | 5555 | Nellore   |   100 |\par
+| Mohit     | 6666 | Hyderabad |    70 |\par
+| Sri Nidhi | 7777 | Hyderabad |    78 |\par
++-----------+------+-----------+-------+\par
+7 rows in set (0.00 sec)\par
+\par
+mysql> insert into student values ('Bhavana',1111,'Hyderabad',94)\par
+    -> ^C\par
+mysql> insert into student values ('Bhavana',1111,'Hyderabad',94);\par
+ERROR 1062 (23000): Duplicate entry '1111' for key 'student.PRIMARY'\par
+mysql> select * from student;\par
++-----------+------+-----------+-------+\par
+| name      | id   | address   | marks |\par
++-----------+------+-----------+-------+\par
+| Bhavana   | 1111 | Hyderabad |    94 |\par
+| Marthand  | 2222 | Chennai   |    84 |\par
+| Hithaardh | 3333 | Bangalore |    74 |\par
+| Venkat    | 4444 | Hyderabad |    90 |\par
+| Sudha     | 5555 | Nellore   |   100 |\par
+| Mohit     | 6666 | Hyderabad |    70 |\par
+| Sri Nidhi | 7777 | Hyderabad |    78 |\par
++-----------+------+-----------+-------+\par
+7 rows in set (0.00 sec)\par
+\par
+mysql> update student set address = 'Bengaluru' where address='Bangalore';\par
+Query OK, 1 row affected (0.16 sec)\par
+Rows matched: 1  Changed: 1  Warnings: 0\par
+\par
+mysql> select * from student;\par
++-----------+------+-----------+-------+\par
+| name      | id   | address   | marks |\par
++-----------+------+-----------+-------+\par
+| Bhavana   | 1111 | Hyderabad |    94 |\par
+| Marthand  | 2222 | Chennai   |    84 |\par
+| Hithaardh | 3333 | Bengaluru |    74 |\par
+| Venkat    | 4444 | Hyderabad |    90 |\par
+| Sudha     | 5555 | Nellore   |   100 |\par
+| Mohit     | 6666 | Hyderabad |    70 |\par
+| Sri Nidhi | 7777 | Hyderabad |    78 |\par
++-----------+------+-----------+-------+\par
+7 rows in set (0.00 sec)\par
+\par
+mysql> alter table student add phoneNumber int;\par
+Query OK, 0 rows affected (1.01 sec)\par
+Records: 0  Duplicates: 0  Warnings: 0\par
+\par
+mysql> select * from student;\par
++-----------+------+-----------+-------+-------------+\par
+| name      | id   | address   | marks | phoneNumber |\par
++-----------+------+-----------+-------+-------------+\par
+| Bhavana   | 1111 | Hyderabad |    94 |        NULL |\par
+| Marthand  | 2222 | Chennai   |    84 |        NULL |\par
+| Hithaardh | 3333 | Bengaluru |    74 |        NULL |\par
+| Venkat    | 4444 | Hyderabad |    90 |        NULL |\par
+| Sudha     | 5555 | Nellore   |   100 |        NULL |\par
+| Mohit     | 6666 | Hyderabad |    70 |        NULL |\par
+| Sri Nidhi | 7777 | Hyderabad |    78 |        NULL |\par
++-----------+------+-----------+-------+-------------+\par
+7 rows in set (0.06 sec)\par
+\par
+mysql> update student set address = 'Bengaluru' wher^Caddress='Bangalore';\par
+mysql> update student set phoneNumber = 987654321\par
+    -> ^C\par
+mysql> update student set phoneNumber = 987654321;\par
+Query OK, 7 rows affected (0.17 sec)\par
+Rows matched: 7  Changed: 7  Warnings: 0\par
+\par
+mysql> select * from student;\par
++-----------+------+-----------+-------+-------------+\par
+| name      | id   | address   | marks | phoneNumber |\par
++-----------+------+-----------+-------+-------------+\par
+| Bhavana   | 1111 | Hyderabad |    94 |   987654321 |\par
+| Marthand  | 2222 | Chennai   |    84 |   987654321 |\par
+| Hithaardh | 3333 | Bengaluru |    74 |   987654321 |\par
+| Venkat    | 4444 | Hyderabad |    90 |   987654321 |\par
+| Sudha     | 5555 | Nellore   |   100 |   987654321 |\par
+| Mohit     | 6666 | Hyderabad |    70 |   987654321 |\par
+| Sri Nidhi | 7777 | Hyderabad |    78 |   987654321 |\par
++-----------+------+-----------+-------+-------------+\par
+7 rows in set (0.00 sec)\par
+\par
+mysql> alter table student add^ChoneNumber int;\par
+mysql> update student set phoneNumer=976543218 where address = 'Hyderabad';\par
+ERROR 1054 (42S22): Unknown column 'phoneNumer' in 'field list'\par
+mysql> update student set phoneNumber=976543218 where address = 'Hyderabad';\par
+Query OK, 4 rows affected (0.16 sec)\par
+Rows matched: 4  Changed: 4  Warnings: 0\par
+\par
+mysql> select * from student;\par
++-----------+------+-----------+-------+-------------+\par
+| name      | id   | address   | marks | phoneNumber |\par
++-----------+------+-----------+-------+-------------+\par
+| Bhavana   | 1111 | Hyderabad |    94 |   976543218 |\par
+| Marthand  | 2222 | Chennai   |    84 |   987654321 |\par
+| Hithaardh | 3333 | Bengaluru |    74 |   987654321 |\par
+| Venkat    | 4444 | Hyderabad |    90 |   976543218 |\par
+| Sudha     | 5555 | Nellore   |   100 |   987654321 |\par
+| Mohit     | 6666 | Hyderabad |    70 |   976543218 |\par
+| Sri Nidhi | 7777 | Hyderabad |    78 |   976543218 |\par
++-----------+------+-----------+-------+-------------+\par
+7 rows in set (0.00 sec)\par
+\par
+mysql> desc student;\par
++-------------+-------------+------+-----+---------+-------+\par
+| Field       | Type        | Null | Key | Default | Extra |\par
++-------------+-------------+------+-----+---------+-------+\par
+| name        | varchar(30) | YES  |     | NULL    |       |\par
+| id          | int         | NO   | PRI | NULL    |       |\par
+| address     | varchar(50) | YES  |     | NULL    |       |\par
+| marks       | int         | YES  |     | NULL    |       |\par
+| phoneNumber | int         | YES  |     | NULL    |       |\par
++-------------+-------------+------+-----+---------+-------+\par
+5 rows in set (0.00 sec)\par
+\par
+mysql> alter table student modify column name varchar(60);\par
+Query OK, 0 rows affected (0.31 sec)\par
+Records: 0  Duplicates: 0  Warnings: 0\par
+\par
+mysql> desc student;\par
++-------------+-------------+------+-----+---------+-------+\par
+| Field       | Type        | Null | Key | Default | Extra |\par
++-------------+-------------+------+-----+---------+-------+\par
+| name        | varchar(60) | YES  |     | NULL    |       |\par
+| id          | int         | NO   | PRI | NULL    |       |\par
+| address     | varchar(50) | YES  |     | NULL    |       |\par
+| marks       | int         | YES  |     | NULL    |       |\par
+| phoneNumber | int         | YES  |     | NULL    |       |\par
++-------------+-------------+------+-----+---------+-------+\par
+5 rows in set (0.00 sec)\par
+\par
+mysql> alter table student drop column phoneNumber;\par
+Query OK, 0 rows affected (0.33 sec)\par
+Records: 0  Duplicates: 0  Warnings: 0\par
+\par
+mysql> select * from student;\par
++-----------+------+-----------+-------+\par
+| name      | id   | address   | marks |\par
++-----------+------+-----------+-------+\par
+| Bhavana   | 1111 | Hyderabad |    94 |\par
+| Marthand  | 2222 | Chennai   |    84 |\par
+| Hithaardh | 3333 | Bengaluru |    74 |\par
+| Venkat    | 4444 | Hyderabad |    90 |\par
+| Sudha     | 5555 | Nellore   |   100 |\par
+| Mohit     | 6666 | Hyderabad |    70 |\par
+| Sri Nidhi | 7777 | Hyderabad |    78 |\par
++-----------+------+-----------+-------+\par
+7 rows in set (0.00 sec)\par
+\par
+mysql>\par
+}
+ 
