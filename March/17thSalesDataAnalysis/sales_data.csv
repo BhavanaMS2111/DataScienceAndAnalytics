@@ -1,0 +1,21 @@
+product_id,product_name,category,units_sold,sale_date
+1,Product 1,Clothing,20,2025-03-17
+2,Product 2,Clothing,12,2025-03-18
+3,Product 3,Sports,11,2025-03-19
+4,Product 4,Home Decor,13,2025-03-20
+5,Product 5,Sports,21,2025-03-21
+6,Product 6,Clothing,13,2025-03-22
+7,Product 7,Home Decor,18,2025-03-23
+8,Product 8,Electronics,16,2025-03-24
+9,Product 9,Sports,20,2025-03-25
+10,Product 10,Home Decor,18,2025-03-26
+11,Product 11,Lighting,21,2025-03-27
+12,Product 12,Lighting,20,2025-03-28
+13,Product 13,Lighting,18,2025-03-29
+14,Product 14,Sports,19,2025-03-30
+15,Product 15,Lighting,24,2025-03-31
+16,Product 16,Home Decor,30,2025-04-01
+17,Product 17,Sports,12,2025-04-02
+18,Product 18,Sports,25,2025-04-03
+19,Product 19,Home Decor,21,2025-04-04
+20,Product 20,Electronics,15,2025-04-05
