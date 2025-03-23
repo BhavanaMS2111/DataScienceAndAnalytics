@@ -14,16 +14,16 @@ except Exception as e:
     st.stop()
 
 st.title("Gold Price Prediction App")
-st.write("Enter INR to USD conversion rate to predict the closing gold price")
+st.write("Enter USD to INR conversion rate to predict the closing gold price")
 
 # Input and prediction
-inr_to_usd = st.number_input("INR to USD Conversion Rate", min_value=50.0, max_value=200.0, step=0.01)
+usd_to_inr = st.number_input("USD to INR Conversion Rate", min_value=50.0, max_value=200.0, step=0.01)
 
 if st.button("Predict"):
     try:
         # Make prediction
-        predicted_price_inr = model.predict(np.array([[inr_to_usd]]))
-        predicted_price_usd = predicted_price_inr / inr_to_usd
+        predicted_price_inr = model.predict(np.array([[usd_to_inr]]))
+        predicted_price_usd = predicted_price_inr / usd_to_inr
 
         # Display the predictions
         st.success(
@@ -39,7 +39,7 @@ st.markdown("---")
 st.write(
     "### How the Model Works 📊"
     "- The model was trained on historical gold prices and uses linear regression to predict closing prices.\n"
-    "- It considers the **INR to USD conversion rate** as the independent variable.\n"
+    "- It considers the **USD to INR conversion rate** as the independent variable.\n"
 )
 
 # Display Model Summary
